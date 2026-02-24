@@ -16,9 +16,9 @@ public class exe {
     private double[][] hMsBiomes;
     
     public exe() {
-        NPCs = new String[25]; NPC_replacement_names = new String[NPCs.length][NPCs.length];//WIP
+        NPCs = new String[25]; NPC_replacement_names = new String[NPCs.length][NPCs.length]; //WIP
         NPC_relevances = new int[NPCs.length]; NPC_ranking = new int[NPCs.length];
-        Biomes = new String[8]; Biome_replacement_names = new String[Biomes.length][5];//WIP
+        Biomes = new String[8]; Biome_replacement_names = new String[Biomes.length][5]; //WIP
         hMsNPCs = new double[NPCs.length][NPCs.length];
         hMsBiomes = new double[NPCs.length][Biomes.length];
         
@@ -26,7 +26,8 @@ public class exe {
         Matrix_setup();
         Preferences_setup();
         
-        //relevances
+        //add relevances
+        Ranking_setup();
     }
     
     public int getNPC(String name) {
@@ -53,6 +54,57 @@ public class exe {
             }
         }
         return -1;
+    }
+    
+    public double getHappiness(String[][] currentArrangement) {
+        return 1;
+    }
+    
+    public double GoThroughAllPossibilitiesRecursively(int currentIndex, String[][] currentArrangement) {
+        
+        return getHappiness(currentArrangement);
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    /**Just Setup*/
+    //I said just setup
+    private void Ranking_setup() {
+        NPC_ranking[0] = getNPC("Angler");
+        NPC_ranking[1] = getNPC("Mechanic");
+        NPC_ranking[2] = getNPC("Goblin Tinkerer");
+        NPC_ranking[3] = getNPC("Steampunker");
+        NPC_ranking[4] = getNPC("Nurse");
+        NPC_ranking[5] = getNPC("Wizard");
+        NPC_ranking[6] = getNPC("Arms Dealer");
+        
+        NPC_ranking[7] = getNPC("Demolitionist");
+        NPC_ranking[8] = getNPC("Dryad");
+        NPC_ranking[9] = getNPC("Pirate");
+        NPC_ranking[10] = getNPC("Witch Doctor");
+        NPC_ranking[11] = getNPC("Tavernkeep");
+        NPC_ranking[12] = getNPC("Tax Collector");
+        
+        NPC_ranking[13] = getNPC("Cyborg");
+        NPC_ranking[14] = getNPC("Truffle");
+        NPC_ranking[15] = getNPC("Zoologist");
+        
+        NPC_ranking[16] = getNPC("Merchant");
+        NPC_ranking[17] = getNPC("Golfer");
+        NPC_ranking[18] = getNPC("Party Girl");
+        NPC_ranking[19] = getNPC("Dye Trader");
+        NPC_ranking[20] = getNPC("Stylist");
+        NPC_ranking[21] = getNPC("Painter");
+        NPC_ranking[22] = getNPC("Clothier");
+        NPC_ranking[23] = getNPC("Princess");
+        NPC_ranking[24] = getNPC("Guide");
     }
     
     private void Array_setup() {
@@ -92,7 +144,7 @@ public class exe {
         NPCs[24] = "Princess";
     }
     
-    public void Matrix_setup() {
+    private void Matrix_setup() {
         for(int i=0; i<hMsNPCs.length; i++) {
             for(int j=0; j<hMsNPCs[i].length; j++) {
                 hMsNPCs[i][j] = 1;
@@ -105,7 +157,7 @@ public class exe {
         }
     }
     
-    public void Preferences_setup() {
+    private void Preferences_setup() {
         int Guide = getNPC("Guide");
         int Merchant = getNPC("Merchant");
         int Zoologist = getNPC("Zoologist");
